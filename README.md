@@ -14,3 +14,4 @@ YESB
   * sorting
   * sharing of searches 
   * clans (taken from epsys server browser)
+  * the ability to parse xml and not needing a php script running in the background
