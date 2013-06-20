@@ -15,3 +15,4 @@ YESB
   * sharing of searches/servers
   * clans (taken from epsys server browser)
   * the ability to parse xml and not needing a php script running in the background
+  * nicer options menu -> gear icon that kind of "unfolds"
