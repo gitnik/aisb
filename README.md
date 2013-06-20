@@ -17,3 +17,4 @@ YESB
   * the ability to parse xml and not needing a php script running in the background
   * nicer options menu -> gear icon that kind of "unfolds"
   * allow users to show empty servers
+  * server grouping by EU & USA
