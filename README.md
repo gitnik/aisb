@@ -12,6 +12,6 @@ YESB
 * other things that I will add later:
   * more detailed view for a single server
   * sorting
-  * sharing of searches 
+  * sharing of searches/servers
   * clans (taken from epsys server browser)
   * the ability to parse xml and not needing a php script running in the background
