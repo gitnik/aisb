@@ -8,7 +8,7 @@ YESB
   * flags identifying a server's country (and caching thereof)
   * reloading data when a user comes back to the site (instead of reloading every x seconds)
   * an advanced search 
-  * 
+  
 * other things that I will add later:
   * more detailed view for a single server
   * sorting
