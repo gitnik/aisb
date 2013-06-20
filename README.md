@@ -9,6 +9,7 @@ YESB
   * reloading data when a user comes back to the site (instead of reloading every x seconds)
   * an advanced search 
   * let the user add the armagetron protocol: http://dev.opera.com/articles/view/html5-custom-protocol-and-content-handlers/
+  * show ping for each server (and cache it) http://stackoverflow.com/questions/8961563/how-to-ping-in-javascript-or-jquery
   
 * other things that I will add later:
   * more detailed view for a single server
