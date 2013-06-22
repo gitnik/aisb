@@ -20,3 +20,4 @@ YESB
   * nicer options menu -> gear icon that kind of "unfolds"
   * allow users to show empty servers
   * server grouping by EU & USA
+  * nicer handling of failed ressource loading (put it into the controller?)
