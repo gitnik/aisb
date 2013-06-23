@@ -1,0 +1,1 @@
+angular.module('ServerBrowserApp', ['ServerBrowserApp.factories', 'ServerBrowserApp.filters', 'ServerBrowserApp.controllers', 'ServerBrowserApp.localStorage']);

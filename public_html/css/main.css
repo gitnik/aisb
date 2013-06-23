@@ -1,0 +1,77 @@
+body {
+	font-family: 'Droid Sans', sans-serif;
+	background-color: #3a3f42 !important;
+	color: #5dc1ff;
+}
+
+.wrapper {
+	text-align: center;
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+}
+
+.heading > a, .heading > a:active, .heading > a:hover {
+	text-decoration: none;
+	font-weight: bold;
+	color: #5dc1ff;
+}
+
+.menu-horizontal {
+	padding: 20px 0px 30px 0px;
+}
+
+.menu-horizontal > ul {
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+}
+
+.menu-horizontal > ul > li * {
+	color: #5dc1ff;
+}
+
+.menu-horizontal > ul > li:hover {
+	border-radius: 10px;
+	background-color: #454b4f !important;
+}
+
+.serverSearch-form * {
+	color: #5dc1ff !important;
+	box-shadow: none !important;
+}
+
+.serverDataInfo {
+	font-size: 15px;
+	padding-bottom: 20px;
+}
+
+.serverData-table > thead > tr > th {
+	text-align: center;
+}
+
+.bottom {
+	padding-top: 50px;
+}
+
+.serverbrowser-options {
+	position: absolute;
+	right: 0px;
+	height: 122px;
+	width: 300px;
+}
+
+.pure-button-success, .pure-button-error {
+	color: white !important;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+	border-radius: 10px !important;
+	white-space: normal !important;
+}
+
+.pure-button-success {
+ 	background: rgb(28, 184, 65) !important; /* this is a green */
+}
+
+.pure-button-error {
+    background: rgb(202, 60, 60) !important; /* this is a maroon */
+}

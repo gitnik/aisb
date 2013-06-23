@@ -1,0 +1,8 @@
+e:\nik\documents\visual studio 2012\Projects\ArmagetronProtocol\ArmagetronProtocol\bin\Debug\ArmagetronProtocol.exe.config
+e:\nik\documents\visual studio 2012\Projects\ArmagetronProtocol\ArmagetronProtocol\bin\Debug\ArmagetronProtocol.exe
+e:\nik\documents\visual studio 2012\Projects\ArmagetronProtocol\ArmagetronProtocol\bin\Debug\ArmagetronProtocol.pdb
+e:\nik\documents\visual studio 2012\Projects\ArmagetronProtocol\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.Form1.resources
+e:\nik\documents\visual studio 2012\Projects\ArmagetronProtocol\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.Properties.Resources.resources
+e:\nik\documents\visual studio 2012\Projects\ArmagetronProtocol\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.csproj.GenerateResource.Cache
+e:\nik\documents\visual studio 2012\Projects\ArmagetronProtocol\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.exe
+e:\nik\documents\visual studio 2012\Projects\ArmagetronProtocol\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.pdb
