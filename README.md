@@ -1,7 +1,7 @@
-YESB
+AISB
 ====
 
-#### YESB is Yet Another Server Browser...
+#### AISB is AI's Server Browser...
 * built on top of [angular.js](http://angularjs.org/)
 * that has a set of unique features such as
   * repository fallback -> later
