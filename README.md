@@ -6,7 +6,7 @@ YESB
 * that has a set of unique features such as
   * repository fallback -> later
   * flags identifying a server's country (and caching thereof) -> finished
-  * reloading data when a user comes back to the site (instead of reloading every x seconds)
+  * reloading data when a user comes back to the site (instead of reloading every x seconds) -> finished
   * an advanced search 
   * let the user add the armagetron protocol: https://developer.mozilla.org/de/docs/Web-based_protocol_handlers
   * show ping for each server (and cache it) http://stackoverflow.com/questions/8961563/how-to-ping-in-javascript-or-jquery
