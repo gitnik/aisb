@@ -8,7 +8,7 @@ YESB
   * flags identifying a server's country (and caching thereof) -> finished
   * reloading data when a user comes back to the site (instead of reloading every x seconds) -> finished
   * an advanced search 
-  * let the user add the armagetron protocol: https://developer.mozilla.org/de/docs/Web-based_protocol_handlers
+  * let the user add the armagetron protocol: -> done
   * show ping for each server (and cache it) http://stackoverflow.com/questions/8961563/how-to-ping-in-javascript-or-jquery
   
 * other things that I will add later:
