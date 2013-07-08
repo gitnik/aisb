@@ -1,0 +1,8 @@
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\bin\Release\ArmagetronProtocol.exe.config
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\bin\Release\ArmagetronProtocol.exe
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\bin\Release\ArmagetronProtocol.pdb
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\obj\Release\ArmagetronProtocol.Form1.resources
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\obj\Release\ArmagetronProtocol.Properties.Resources.resources
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\obj\Release\ArmagetronProtocol.csproj.GenerateResource.Cache
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\obj\Release\ArmagetronProtocol.exe
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\obj\Release\ArmagetronProtocol.pdb

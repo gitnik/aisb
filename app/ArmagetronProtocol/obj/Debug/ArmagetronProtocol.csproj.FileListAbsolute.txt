@@ -6,3 +6,12 @@ e:\nik\documents\visual studio 2012\Projects\ArmagetronProtocol\ArmagetronProtoc
 e:\nik\documents\visual studio 2012\Projects\ArmagetronProtocol\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.csproj.GenerateResource.Cache
 e:\nik\documents\visual studio 2012\Projects\ArmagetronProtocol\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.exe
 e:\nik\documents\visual studio 2012\Projects\ArmagetronProtocol\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.pdb
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\bin\Debug\ArmagetronProtocol.exe.config
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.exe
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.pdb
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\bin\Debug\ArmagetronProtocol.exe
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\bin\Debug\ArmagetronProtocol.pdb
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.csprojResolveAssemblyReference.cache
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.Form1.resources
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.Properties.Resources.resources
+E:\Nik\GitHub\yesb\app\ArmagetronProtocol\obj\Debug\ArmagetronProtocol.csproj.GenerateResource.Cache
