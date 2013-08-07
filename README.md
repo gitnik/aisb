@@ -19,3 +19,4 @@ AISB
   * allow users to show empty servers
   * server grouping by EU & USA
   * nicer handling of failed ressource loading (put it into the controller?)
+  * notification-sound once a server reaches a user-defined amount of player
