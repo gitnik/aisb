@@ -49,7 +49,7 @@ controller('ServerBrowserController', function($scope, ServerDataFactory, Settin
         }
 
         document.addEventListener(visibilityChange, function() {
-            if(document[hidden] == false && !!$scope.reloadOnComeback === true) {
+            if(document[hidden] == false && $scope.reloadOnComeback == true) {
                 $scope.loadServers();
             }
         }, false);
