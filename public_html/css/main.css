@@ -75,3 +75,8 @@ body {
 .pure-button-error {
     background: rgb(202, 60, 60) !important; /* this is a maroon */
 }
+
+a {
+  color:inherit;
+  text-decoration: none;
+}

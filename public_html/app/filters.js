@@ -2,11 +2,14 @@ angular.module('ServerBrowserApp.filters', []).
 filter('ServerNameColorFilter', function() {
     return function(server) {
         // strip the color codes from the server name
-        return server.name.replace(
-                /0x(([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})|RESETT|.{6})(.*?)(?=0x(?:.{6}|RESETT)|$)/g,
+        var strippedServer = server.name.replace(
+                /0x(([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})|RESETT|.{6})(.*?)(?=0x(?:.{6}|RESETT|)|$)/g,
                 function(sub, hex, r_, g_, b_, colored){
                     return '<a href="armagetronad://'+server.ip+':'+server.port+'"><font color="' + hex + '">' + colored + '</font></a>';
                 });
+
+        // and attach the protocol link
+        return '<a href="armagetronad://'+server.ip+':'+server.port+'">'+strippedServer+'</a>';
     }
 }).
 filter('JoinPlayersFilter', function() {

@@ -63,11 +63,6 @@
 				</tr>
 			</thead>
 			<tbody>
-				problem: es zeigt nix an und ich muss .$ für sowohl plainname als auch Players gültig machen<br>
-				flaggen: module in der factory und dann damit abspeichern. anschließend gehen wir die flaggen durch und wenn wir merken, dass bei servern die mehr als 0 spieler haben die flagge fehlt, laden wir dir liste<br>nochmal neu, aber diesmal mit flaggen (heißt das default ohne flaggen bzw countries ist)<br>
-				flaggen im cache des users speichern: jStorage<br>
-				optionen menü: auto reload? flaggen cachen?<br>
-				serverdatainfo: filter alle leeren server raus<br>
 				<tr ng-repeat="server in ServerData.Servers" doesnothing="| filter:{plainname: searchQuery.name, Players: searchQuery.Players}" ng-show="(server.numplayers > 0 || (searchQuery.$ || searchQuery.name || searchQuery.name))" class="serverRow">
 					<td ng-bind-html-unsafe='server.country | ServerLocationFilter'></td>
 					<td ng-bind-html-unsafe='server | ServerNameColorFilter'></td>
