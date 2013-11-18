@@ -1,17 +1,18 @@
 angular.module('ServerBrowserApp.controllers', []).
-controller('ServerBrowserController', function($scope, ServerDataFactory, localStorageFactory) {
+controller('ServerBrowserController', function($scope, ServerDataFactory, SettingsFactory, localStorageFactory) {
 
-    $scope.reloadOnComeback = false;
+    $scope.reloadOnComeback = SettingsFactory.get('reloadOnComeback', true);
 
     $scope.toggleComebackOption = function() {
         $scope.reloadOnComeback = !$scope.reloadOnComeback;
+        SettingsFactory.set('reloadOnComeback', $scope.reloadOnComeback);
     }
 
-    $scope.cacheFlagsAndLocation = true;
+    $scope.cacheFlagsAndLocation = SettingsFactory.get('cacheFlagsAndLocation', true);
 
     $scope.toggleCachingOption = function() {
         $scope.cacheFlagsAndLocation = !$scope.cacheFlagsAndLocation;
-        this.initLocalStorage();
+        SettingsFactory.set('cacheFlagsAndLocation', $scope.cacheFlagsAndLocation);
     }
 
     $scope.reloading = false;
@@ -48,7 +49,7 @@ controller('ServerBrowserController', function($scope, ServerDataFactory, localS
         }
 
         document.addEventListener(visibilityChange, function() {
-            if(document[hidden] == false && $scope.reloadOnComeback) {
+            if(document[hidden] == false && !!$scope.reloadOnComeback === true) {
                 $scope.loadServers();
             }
         }, false);
