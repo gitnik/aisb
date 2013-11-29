@@ -7,21 +7,24 @@
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
 	<link rel="stylesheet" type="text/css" href="css/pure.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
 </head>
 <body>
 	<div class="wrapper">
-		<div class="heading">
+		<!--<div class="heading">
 			<a href="http://therealplayer1.com/yesb">
 				<div><font style="font-size: 60pt">YESB</font></div>
 				<div><font style="font-size: 15pt">yet another server browser</font></div>
 			</a>
-		</div>
+		</div>-->
 		<br><br><br>
 
 		<div class="serverbrowser-options">
-			<button class="pure-button" ng-class="{true: 'pure-button-success', false: 'pure-button-error'}[reloadOnComeback]" ng-click="toggleComebackOption()">Reload server data when I come back to this page</button>
+			<button class="pure-button" ng-click="loadServers()">force server fetch</button>
 			<br><br>
-			<button class="pure-button" ng-class="{true: 'pure-button-success', false: 'pure-button-error'}[cacheFlagsAndLocation]" ng-click="toggleCachingOption()">Cache server flags and locations on my PC</button>
+			<!--<button class="pure-button" ng-class="{true: 'pure-button-success', false: 'pure-button-error'}[reloadOnComeback]" ng-click="toggleComebackOption()">Reload server data when I come back to this page</button>
+			<br><br>
+			<button class="pure-button" ng-class="{true: 'pure-button-success', false: 'pure-button-error'}[cacheFlagsAndLocation]" ng-click="toggleCachingOption()">Cache server flags and locations on my PC</button>-->
 
 		</div>
 
@@ -49,13 +52,14 @@
 		</div>
 
 		<div ng-show="ServerData.Servers" class="serverDataInfo">
-			This data is {{ ServerData.age }} seconds old |
+			This data is {{ ServerData.ageFormat }} old |
 			Showing {{ (ServerData.Servers|filter:searchQuery).length }} servers with {{ (ServerData.Servers | filter:searchQuery | PlayersCountFilter) }} players
 		</div>
 
 		<table ng-show="ServerData.Servers | filter:searchQuery" class="pure-table pure-table-horizontal serverData-table">
 			<thead>
 				<tr>
+					<th></th>
 					<th>country</th>
 					<th>server</th>
 					<th># of players</th>
@@ -64,8 +68,9 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="server in ServerData.Servers" doesnothing="| filter:{plainname: searchQuery.name, Players: searchQuery.Players}" ng-show="(server.numplayers > 0 || (searchQuery.$ || searchQuery.name || searchQuery.name))" class="serverRow">
-					<td ng-bind-html-unsafe='server.country | ServerLocationFilter'></td>
-					<td ng-bind-html-unsafe='server | ServerNameColorFilter'></td>
+					<td><a href="#" ng-click="server.showDetails = !server.showDetails"><i class="fa" ng-class="{false: 'fa-sort-asc', true: 'fa-sort-desc'}[server.showDetails]"></i></a></td>
+					<td><img ng-src="img/flags/{{ server.country | ServerLocationFilter }}.png"></td>
+					<td ng-bind-html='server | ServerNameColorFilter'></td>
 					<td>{{ server.numplayers }} / {{ server.maxplayers }}</td>
 					<td>{{ server.Players | JoinPlayersFilter }}</td>
 				</tr>
@@ -76,7 +81,7 @@
 
 	<script src="app/vendor/jquery.min.js"></script>
 	<!--- <script src="app/vendor/angular.min.js"></script> -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.js"></script>
 	<script src="app/vendor/xml2json.js"></script>
 
 	<script src="app/app.js"></script>
@@ -84,8 +89,5 @@
 	<script src="app/filters.js"></script>
 	<script src="app/factories.js"></script>
 	<script src="app/localstorage.js"></script>
-
-
-
 </body>
 </html>

@@ -61,7 +61,8 @@ foreach($simpleXml->Server as $server) {
 		'maxplayers'      => (string)$server['maxplayers'],
 		'url'             => (string)$server['url'],
 		'country'		  => (string)strtolower($country),
-		'Players'         => $players
+		'Players'         => $players,
+		'showDetails'	  => false
 	);
 
 	$json['playerstotal'] += (int)$server['numplayers'];

@@ -1,15 +1,15 @@
 angular.module('ServerBrowserApp.filters', []).
-filter('ServerNameColorFilter', function() {
+filter('ServerNameColorFilter', function($sce) {
     return function(server) {
         // strip the color codes from the server name
         var strippedServer = server.name.replace(
                 /0x(([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})|RESETT|.{6})(.*?)(?=0x(?:.{6}|RESETT|)|$)/g,
                 function(sub, hex, r_, g_, b_, colored){
-                    return '<a href="armagetronad://'+server.ip+':'+server.port+'"><font color="' + hex + '">' + colored + '</font></a>';
+                    return '<font color="' + hex + '">' + colored + '</font>';
                 });
 
         // and attach the protocol link
-        return '<a href="armagetronad://'+server.ip+':'+server.port+'">'+strippedServer+'</a>';
+        return $sce.trustAsHtml('<a href="armagetronad://'+server.ip+':'+server.port+'">'+strippedServer+'</a>');
     }
 }).
 filter('JoinPlayersFilter', function() {
@@ -44,6 +44,6 @@ filter('ServerLocationFilter', function() {
         invalidCountryCodes= new Array("xx", "00", "a1", "a2", "o1");
         if(invalidCountryCodes.indexOf(country) != "-1")
              return ""
-        return '<img src="img/flags/'+country+'.png">';
+        return country;
     }
 });
