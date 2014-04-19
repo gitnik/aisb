@@ -1,0 +1,13 @@
+{
+    "name":         "AISB",
+    "version":      "1.0.0",
+    "dependencies": {
+        "jasmine": "latest",
+        "polymer-platform": "latest",
+        "angular": "latest",
+        "purecss": "latest",
+        "fontawesome": "latest",
+        "flag-icon-css": "latest",
+        "jquery-xml2json": "latest"
+    }
+}
