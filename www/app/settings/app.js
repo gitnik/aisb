@@ -1,0 +1,1 @@
+angular.module('ServerBrowserApp.settings', ['ServerBrowserApp.settings.factories']);

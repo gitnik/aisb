@@ -1,1 +1,10 @@
-angular.module('ServerBrowserApp', ['ServerBrowserApp.factories', 'ServerBrowserApp.filters', 'ServerBrowserApp.controllers', 'ServerBrowserApp.localStorage']);
+angular.module(
+    'ServerBrowserApp',
+    [
+        'ServerBrowserApp.browser',
+        'ServerBrowserApp.settings',
+        'ServerBrowserApp.data',
+        'ngResource',
+        'ngRoute'
+    ]
+);

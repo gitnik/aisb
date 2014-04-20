@@ -1,93 +1,111 @@
 <!DOCTYPE html>
 <html ng-app="ServerBrowserApp" ng-controller="ServerBrowserController">
 <head>
-	<title>the real Player 1</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no" />
-	<meta charset='utf-8'>
-	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="css/main.css" />
-	<link rel="stylesheet" type="text/css" href="vendor/pure/pure-min.css" />
-	<link rel="stylesheet" type="text/css" href="vendor/fontawesome/css/font-awesome.min.css" />
-	<link rel="stylesheet" type="text/css" href="vendor/flag-icon-css/css/flag-icon.min.css" />
+    <title>AI's Server Browser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset='utf-8'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="vendor/pure/pure-min.css"/>
+    <link rel="stylesheet" type="text/css" href="vendor/pure/grids-responsive-min.css"/>
+    <link rel="stylesheet" type="text/css" href="vendor/fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="vendor/flag-icon-css/css/flag-icon.min.css"/>
 </head>
 <body>
-	<div class="wrapper">
-		<!--<div class="heading">
-			<a href="http://therealplayer1.com/yesb">
-				<div><font style="font-size: 60pt">YESB</font></div>
-				<div><font style="font-size: 15pt">yet another server browser</font></div>
-			</a>
-		</div>-->
-		<br><br><br>
+<div class="pure-g">
+    <div class="pure-u-1-3"></div>
+    <div class="pure-u-1-3">
+        <form class="pure-form pure-form-aligned serverSearch-form">
+            <fieldset>
+                <div class="pure-control-group">
+                    <label>Search all:
+                        <input type="text" ng-model="searchQuery.$">
+                    </label>
+                </div>
+                <div class="pure-control-group">
+                    <label>Search servers:
+                        <input type="text" ng-model="searchQuery.name">
+                    </label>
+                </div>
+                <div class="pure-control-group">
+                    <label>Search players:
+                        <input type="text" ng-model="searchQuery.Players">
+                    </label>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="pure-u-1-3">
+        <button class="pure-button" ng-click="loadServers()">force server fetch</button>
+        <!--<button class="pure-button" ng-class="{true: 'pure-button-success', false: 'pure-button-error'}[reloadOnComeback]" ng-click="toggleComebackOption()">Reload server data when I come back to this page</button>
+        <br><br>
+        <button class="pure-button" ng-class="{true: 'pure-button-success', false: 'pure-button-error'}[cacheFlagsAndLocation]" ng-click="toggleCachingOption()">Cache server flags and locations on my PC</button>-->
 
-		<div class="serverbrowser-options">
-			<button class="pure-button" ng-click="loadServers()">force server fetch</button>
-			<br><br>
-			<!--<button class="pure-button" ng-class="{true: 'pure-button-success', false: 'pure-button-error'}[reloadOnComeback]" ng-click="toggleComebackOption()">Reload server data when I come back to this page</button>
-			<br><br>
-			<button class="pure-button" ng-class="{true: 'pure-button-success', false: 'pure-button-error'}[cacheFlagsAndLocation]" ng-click="toggleCachingOption()">Cache server flags and locations on my PC</button>-->
+    </div>
+</div>
+<div class="pure-g">
+    <div class="pure-u-4-5 fa-align-center">
+        <div ng-show="reloading">
+            <img src="img/ajax-loader.gif">
+        </div>
 
-		</div>
+        <div ng-show="serverData">
+            This data is {{ serverData.age | TimeFormatFilter }} old |
+            Showing {{ (serverData.Servers|filter:searchQuery).length }} servers with {{ (serverData.Servers |
+            filter:searchQuery | PlayersCountFilter) }} players
+        </div>
 
-		<form class="pure-form pure-form-aligned serverSearch-form">
-			<fieldset>
-				<div class="pure-control-group">
-					<label>Search all:</label>
-					<input type="text" ng-model="searchQuery.$">
-				</div>
-				<div class="pure-control-group">
-					<label>Search servers:</label>
-					<input type="text" ng-model="searchQuery.name">
-				</div>
-				<div class="pure-control-group">
-					<label>Search players:</label>
-					<input type="text" ng-model="searchQuery.Players">
-				</div>
-			</fieldset>
-		</form>
+        <table ng-show="serverData.servers | filter:searchQuery"
+               class="pure-table pure-table-horizontal serverData-table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>country</th>
+                <th>server</th>
+                <th># of players</th>
+                <th>names</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="server in serverData.servers"
+                doesnothing="| filter:{plainname: searchQuery.name, Players: searchQuery.Players}"
+                ng-show="(server.numplayers > 0 || (searchQuery.$ || searchQuery.name || searchQuery.name))"
+                class="serverRow">
+                <td>
+                    <a href="#" ng-click="server.showDetails = !server.showDetails">
+                        <i class="fa" ng-class="{false: 'fa-sort-asc', true: 'fa-sort-desc'}[server.showDetails]"></i>
+                    </a>
+                </td>
+                <td><img ng-src="img/flags/{{ server.country | ServerCountryFilter }}.png"></td>
+                <td data-ng-bind-html='server | ServerNameFilter'></td>
+                <td>{{ server.numplayers }} / {{ server.maxplayers }}</td>
+                <td>{{ server.Players | JoinPlayersFilter }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
-		<div style="clear:both;padding: 15px;"></div>
+<script src="vendor/angular/angular.js"></script>
+<script src="vendor/angular-resource/angular-resource.js"></script>
+<script src="vendor/angular-route/angular-route.js"></script>
+<script src="vendor/jquery-xml2json/src/xml2json.js"></script>
+<script src="vendor/polymer-platform/platform.js"></script>
 
-		<div ng-show="reloading">
-			<img src="img/ajax-loader.gif">
-		</div>
-
-		<div ng-show="ServerData.Servers" class="serverDataInfo">
-			This data is {{ ServerData.ageFormat }} old |
-			Showing {{ (ServerData.Servers|filter:searchQuery).length }} servers with {{ (ServerData.Servers | filter:searchQuery | PlayersCountFilter) }} players
-		</div>
-
-		<table ng-show="ServerData.Servers | filter:searchQuery" class="pure-table pure-table-horizontal serverData-table">
-			<thead>
-				<tr>
-					<th></th>
-					<th>country</th>
-					<th>server</th>
-					<th># of players</th>
-					<th>names</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="server in ServerData.Servers" doesnothing="| filter:{plainname: searchQuery.name, Players: searchQuery.Players}" ng-show="(server.numplayers > 0 || (searchQuery.$ || searchQuery.name || searchQuery.name))" class="serverRow">
-					<td><a href="#" ng-click="server.showDetails = !server.showDetails"><i class="fa" ng-class="{false: 'fa-sort-asc', true: 'fa-sort-desc'}[server.showDetails]"></i></a></td>
-					<td><img ng-src="img/flags/{{ server.country | ServerLocationFilter }}.png"></td>
-					<td ng-bind-html='server | ServerNameColorFilter'></td>
-					<td>{{ server.numplayers }} / {{ server.maxplayers }}</td>
-					<td>{{ server.Players | JoinPlayersFilter }}</td>
-				</tr>
-			</tbody>
-		</table>
-		<div class="bottom"></div>
-	</div>
-
-	<script src="vendor/angular/angular.js"></script>
-	<script src="vendor/jquery-xml2json/src/xml2json.js"></script>
-	<script src="vendor/polymer-platform/platform.js"></script>
-
-	<script src="app/app.js"></script>
-	<script src="app/controllers.js"></script>
-	<script src="app/filters.js"></script>
-	<script src="app/factories.js"></script>
-	<script src="app/localstorage.js"></script>
+<script src="app/app.js"></script>
+<script src="app/browser/app.js"></script>
+<script src="app/browser/controllers/ServerBrowserController.js"></script>
+<script src="app/browser/filters/ServerNameFilter.js"></script>
+<script src="app/browser/filters/JoinPlayersFilter.js"></script>
+<script src="app/browser/filters/PlayersCountFilter.js"></script>
+<script src="app/browser/filters/ServerCountryFilter.js"></script>
+<script src="app/browser/filters/TimeFormatFilter.js"></script>
+<script src="app/data/app.js"></script>
+<script src="app/data/factories/ServerDataFactory.js"></script>
+<script src="app/data/factories/CountryDataFactory.js"></script>
+<script src="app/data/factories/WebWorkerFactory.js"></script>
+<script src="app/settings/app.js"></script>
+<script src="app/settings/factories/SettingsFactory.js"></script>
+<script src="app/settings/factories/LocalStorageFactory.js"></script>
 </body>
 </html>

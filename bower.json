@@ -8,6 +8,8 @@
         "pure": "0.5.*",
         "fontawesome": "latest",
         "flag-icon-css": "latest",
-        "jquery-xml2json": "latest"
+        "jquery-xml2json": "latest",
+        "angular-resource": "latest",
+        "angular-route": "latest"
     }
 }
