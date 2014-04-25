@@ -52,12 +52,12 @@
 
         <div ng-show="serverData">
             This data is ca. {{ serverData.age | TimeFormatFilter }} old |
-            Showing {{ (serverData.servers|filter:searchQuery).length }}
+            Showing {{ (serverData.servers | filter:searchQuery).length }}
             servers with {{ (serverData.servers | filter:searchQuery | PlayersCountFilter) }} players
         </div>
 
         <table ng-show="serverData.servers"
-               class="pure-table pure-table-horizontal">
+               class="pure-table pure-table-striped pure-table-horizontal">
             <thead>
             <tr>
                 <th></th>
