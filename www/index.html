@@ -24,7 +24,7 @@
                 </div>
                 <div class="pure-control-group">
                     <label>Search servers:
-                        <input type="text" ng-model="searchQuery.name">
+                        <input type="text" ng-model="searchQuery.plainName">
                     </label>
                 </div>
                 <div class="pure-control-group">
@@ -44,19 +44,20 @@
     </div>
 </div>
 <div class="pure-g">
-    <div class="pure-u-4-5 fa-align-center">
+    <div class="pure-u-1-5"></div>
+    <div class="pure-u-3-5">
         <div ng-show="reloading">
             <img src="img/ajax-loader.gif">
         </div>
 
         <div ng-show="serverData">
             This data is ca. {{ serverData.age | TimeFormatFilter }} old |
-            Showing {{ (serverData.Servers|filter:searchQuery).length }} servers with {{ (serverData.Servers |
-            filter:searchQuery | PlayersCountFilter) }} players
+            Showing {{ (serverData.servers|filter:searchQuery).length }}
+            servers with {{ (serverData.servers | filter:searchQuery | PlayersCountFilter) }} players
         </div>
 
-        <table ng-show="serverData.servers | filter:searchQuery"
-               class="pure-table pure-table-horizontal serverData-table">
+        <table ng-show="serverData.servers"
+               class="pure-table pure-table-horizontal">
             <thead>
             <tr>
                 <th></th>
@@ -67,23 +68,24 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="server in serverData.servers"
-                doesnothing="| filter:{plainname: searchQuery.name, Players: searchQuery.Players}"
-                ng-show="(server.numplayers > 0 || (searchQuery.$ || searchQuery.name || searchQuery.name))"
+            <!--| filter:{plainname: searchQuery.name, Players: searchQuery.Players}"-->
+            <tr ng-repeat="server in serverData.servers | filter:searchQuery"
+                ng-show="server.numPlayers > 0"
                 class="serverRow">
                 <td>
                     <a href="#" ng-click="server.showDetails = !server.showDetails">
                         <i class="fa" ng-class="{false: 'fa-sort-asc', true: 'fa-sort-desc'}[server.showDetails]"></i>
                     </a>
                 </td>
-                <td><img ng-src="img/flags/{{ server.country | ServerCountryFilter }}.png"></td>
+                <td><!--<img ng-src="img/flags/{{ server.country | ServerCountryFilter }}.png">--></td>
                 <td data-ng-bind-html='server | ServerNameFilter'></td>
-                <td>{{ server.numplayers }} / {{ server.maxplayers }}</td>
+                <td>{{ server.numPlayers }} / {{ server.maxPlayers }}</td>
                 <td>{{ server.Players | JoinPlayersFilter }}</td>
             </tr>
             </tbody>
         </table>
     </div>
+    <div class="pure-u-1-5"></div>
 </div>
 
 <script src="vendor/angular/angular.js"></script>
