@@ -4,7 +4,7 @@ angular.module('ServerBrowserApp.data.factories', []).
         return $http(
             {
                 method: 'GET',
-                url: 'http://technik.io/tron/serverxml_to_json.php',
+                url: 'app/data.json',
                 timeout: '5000'
             });
     });
