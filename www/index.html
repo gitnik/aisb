@@ -50,7 +50,7 @@
         </div>
 
         <div ng-show="serverData">
-            This data is {{ serverData.age | TimeFormatFilter }} old |
+            This data is ca. {{ serverData.age | TimeFormatFilter }} old |
             Showing {{ (serverData.Servers|filter:searchQuery).length }} servers with {{ (serverData.Servers |
             filter:searchQuery | PlayersCountFilter) }} players
         </div>
