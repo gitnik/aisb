@@ -8,11 +8,12 @@ angular.module('ServerBrowserApp.browser.filters').
             var msPerMinute = 60 * 1000,
                 msPerHour = msPerMinute * 60;
 
-            if (diff < msPerMinute)
-                if (Math.round(diff / 1000))
+            if (diff < msPerMinute) {
+                if (Math.round(diff / 1000) == 1)
                     return "1 second";
                 else
                     return Math.round(diff / 1000) + " seconds";
+            }
 
             if (diff < msPerHour)
                 if (Math.round(diff / msPerMinute))
