@@ -68,9 +68,8 @@
             </tr>
             </thead>
             <tbody>
-            <!--| filter:{plainname: searchQuery.name, Players: searchQuery.Players}"-->
-            <tr ng-repeat="server in serverData.servers | filter:searchQuery"
-                ng-show="server.numPlayers > 0"
+            <tr ng-repeat-start="server in serverData.servers | filter:searchQuery"
+                ng-show="server.numPlayers > 0 || searchQuery"
                 class="serverRow">
                 <td>
                     <a href="#" ng-click="server.showDetails = !server.showDetails">
