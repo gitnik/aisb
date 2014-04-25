@@ -5,7 +5,7 @@ angular.module('ServerBrowserApp.browser.filters', []).
             var strippedServer = server.name.replace(
                 /0x(([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})|RESETT|.{6})(.*?)(?=0x(?:.{6}|RESETT|)|$)/g,
                 function(sub, hex, r_, g_, b_, colored){
-                    return '<font color="' + hex + '">' + colored + '</font>';
+                    return '<span style="color: #' + hex + '">' + colored + '</span>';
                 });
 
             // and attach the protocol link
