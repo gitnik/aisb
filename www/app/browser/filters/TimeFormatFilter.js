@@ -16,14 +16,14 @@ angular.module('ServerBrowserApp.browser.filters').
             }
 
             if (diff < msPerHour)
-                if (Math.round(diff / msPerMinute))
+                if (Math.round(diff / msPerMinute) == 1)
                     return "1 minute";
                 else
                     return Math.round(diff / msPerMinute) + " minutes";
 
             // we're just gonna assume that nobody leaves
             // their browser window open for several days without reloading ;-)
-            if (Math.round(diff / msPerHour))
+            if (Math.round(diff / msPerHour) == 1)
                 return "1 hour";
             else
                 return Math.round(diff / msPerHour) + " hours";
