@@ -82,9 +82,12 @@
                 <td>{{ server.Players | JoinPlayersFilter }}</td>
             </tr>
             <tr ng-repeat-end ng-show="server.showDetails">
-                <td>Description: {{ server.description }}<br>
+                <td colspan="5">
+                    Description: {{ server.description }}<br>
                     URL: {{ server.url }}<br>
-                    Connection details: {{ server.ip }}:{{ server.port }}</td></tr>
+                    Connection details: {{ server.ip }}:{{ server.port }}
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
