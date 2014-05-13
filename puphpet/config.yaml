@@ -44,7 +44,8 @@ vagrantfile-local:
     vagrant:
         host: detect
 server:
-    packages: { vim }
+    packages:
+        - vim
     dot_files:
         -
             bash_aliases: null
