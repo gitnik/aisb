@@ -44,7 +44,7 @@ vagrantfile-local:
     vagrant:
         host: detect
 server:
-    packages: {  }
+    packages: { vim }
     dot_files:
         -
             bash_aliases: null
@@ -58,6 +58,36 @@ mailcatcher:
         http_port: '1080'
         mailcatcher_path: /usr/local/bin
         log_path: /var/log/mailcatcher/mailcatcher.log
+apache:
+    install: 0
+    settings:
+        user: www-data
+        group: www-data
+        default_vhost: true
+        manage_user: false
+        manage_group: false
+        sendfile: 0
+    modules:
+        - php
+        - rewrite
+    vhosts:
+        Ix6ocvnjY35m:
+            servername: awesome.dev
+            serveraliases:
+                - www.awesome.dev
+            docroot: /var/www/awesome
+            port: '80'
+            setenv:
+                - 'APP_ENV dev'
+            override:
+                - All
+            custom_fragment: ''
+            ssl_cert: ''
+            ssl_key: ''
+            ssl_chain: ''
+            ssl_certs_dir: ''
+    mod_pagespeed: 0
+    mod_spdy: 0
 nginx:
     install: '1'
     vhosts:
