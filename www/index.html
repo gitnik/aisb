@@ -81,7 +81,7 @@
                 <td>{{ server.numPlayers }} / {{ server.maxPlayers }}</td>
                 <td>{{ server.Players | JoinPlayersFilter }}</td>
             </tr>
-            <tr ng-repeat-end ng-show="server.showDetails">
+            <tr data-ng-repeat-end ng-show="server.showDetails">
                 <td colspan="5">
                     Description: {{ server.description }}<br>
                     URL: {{ server.url }}<br>
